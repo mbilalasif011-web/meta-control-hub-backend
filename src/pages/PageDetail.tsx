@@ -258,7 +258,7 @@ export const PageDetail: React.FC = () => {
                 {(['text', 'image', 'video'] as const).map((type) => (
                   <button
                     key={type}
-                    className={`flex-1 py-2 rounded-lg text-sm font-medium capitalize transition-colors bg-gray-100 text-gray-700 hover:bg-gray-200`}
+                    className="flex-1 py-2 rounded-lg text-sm font-medium capitalize transition-colors bg-gray-100 text-gray-700 hover:bg-gray-200"
                   >
                     {type}
                   </button>

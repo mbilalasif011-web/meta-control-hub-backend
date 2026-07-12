@@ -25,7 +25,6 @@ export const DirectSchedule: React.FC = () => {
       </div>
 
       <div className="card p-6 space-y-6">
-        {/* Account & Page */}
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Account</label>
@@ -55,7 +54,6 @@ export const DirectSchedule: React.FC = () => {
           </div>
         </div>
 
-        {/* Post Type */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Post Type</label>
           <div className="flex gap-2">
@@ -80,7 +78,6 @@ export const DirectSchedule: React.FC = () => {
           </div>
         </div>
 
-        {/* Caption */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Caption</label>
           <textarea
@@ -92,7 +89,6 @@ export const DirectSchedule: React.FC = () => {
           />
         </div>
 
-        {/* Schedule Date & Time */}
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Date</label>
@@ -120,7 +116,6 @@ export const DirectSchedule: React.FC = () => {
           </div>
         </div>
 
-        {/* Schedule Button */}
         <button
           disabled={!selectedPage || !caption || !scheduledDate || !scheduledTime}
           className="w-full btn-primary flex items-center justify-center gap-2 py-3 disabled:opacity-50 disabled:cursor-not-allowed"

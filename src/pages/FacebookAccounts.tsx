@@ -24,15 +24,6 @@ export const FacebookAccounts: React.FC = () => {
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Uncomment when API is ready:
-  // useEffect(() => {
-  //   setLoading(true);
-  //   fetch('/api/accounts')
-  //     .then(res => res.json())
-  //     .then(data => { setAccounts(data); setLoading(false); })
-  //     .catch(() => { setAccounts(demoAccounts); setLoading(false); });
-  // }, []);
-
   const filtered = accounts.filter(a =>
     a.name.toLowerCase().includes(search.toLowerCase()) ||
     a.email.toLowerCase().includes(search.toLowerCase())

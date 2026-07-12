@@ -21,15 +21,6 @@ export const AutoDownloadUpload: React.FC = () => {
   const [pages, setPages] = useState<Page[]>(demoPages);
   const [loading, setLoading] = useState(false);
 
-  // Uncomment when API is ready:
-  // useEffect(() => {
-  //   setLoading(true);
-  //   fetch('/api/auto-pages')
-  //     .then(res => res.json())
-  //     .then(data => { setPages(data); setLoading(false); })
-  //     .catch(() => { setPages(demoPages); setLoading(false); });
-  // }, []);
-
   const toggleStatus = (id: string) => {
     setPages(pages.map(p => p.id === id ? { ...p, status: p.status === 'active' ? 'paused' : 'active' } : p));
   };

@@ -25,15 +25,6 @@ export const Dashboard: React.FC = () => {
   const [stats, setStats] = useState<Stats>(demoStats);
   const [loading, setLoading] = useState(false);
 
-  // Uncomment when API is ready:
-  // useEffect(() => {
-  //   setLoading(true);
-  //   fetch('/api/stats')
-  //     .then(res => res.json())
-  //     .then(data => { setStats(data); setLoading(false); })
-  //     .catch(() => { setStats(demoStats); setLoading(false); });
-  // }, []);
-
   const statCards = [
     { label: 'FB Accounts', value: stats.fbAccounts, icon: Facebook, color: 'text-blue-600', bg: 'bg-blue-50' },
     { label: 'Auto Pages', value: stats.autoPages, icon: Users, color: 'text-purple-600', bg: 'bg-purple-50' },

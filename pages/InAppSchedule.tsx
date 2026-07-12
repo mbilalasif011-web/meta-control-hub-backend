@@ -27,15 +27,6 @@ export const InAppSchedule: React.FC = () => {
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Uncomment when API is ready:
-  // useEffect(() => {
-  //   setLoading(true);
-  //   fetch('/api/pages')
-  //     .then(res => res.json())
-  //     .then(data => { setPages(data); setLoading(false); })
-  //     .catch(() => { setPages(demoPages); setLoading(false); });
-  // }, []);
-
   const filtered = pages.filter(p =>
     p.name.toLowerCase().includes(search.toLowerCase())
   );

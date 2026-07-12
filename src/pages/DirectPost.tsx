@@ -15,7 +15,6 @@ export const DirectPost: React.FC = () => {
 
   const handlePublish = () => {
     setPublishing(true);
-    // Simulate API call
     setTimeout(() => {
       setPublishing(false);
       setCaption('');
@@ -35,7 +34,6 @@ export const DirectPost: React.FC = () => {
       </div>
 
       <div className="card p-6 space-y-6">
-        {/* Account Select */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Select Account</label>
           <select
@@ -50,7 +48,6 @@ export const DirectPost: React.FC = () => {
           </select>
         </div>
 
-        {/* Page Select */}
         {selectedAccount && (
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Select Page</label>
@@ -67,7 +64,6 @@ export const DirectPost: React.FC = () => {
           </div>
         )}
 
-        {/* Post Type */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Post Type</label>
           <div className="flex gap-2">
@@ -92,7 +88,6 @@ export const DirectPost: React.FC = () => {
           </div>
         </div>
 
-        {/* Caption */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Caption</label>
           <textarea
@@ -104,7 +99,6 @@ export const DirectPost: React.FC = () => {
           />
         </div>
 
-        {/* Media Upload */}
         {postType !== 'text' && (
           <div className="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center">
             <Image size={32} className="text-gray-400 mx-auto mb-2" />
@@ -112,7 +106,6 @@ export const DirectPost: React.FC = () => {
           </div>
         )}
 
-        {/* Publish Button */}
         <button
           onClick={handlePublish}
           disabled={!selectedPage || !caption || publishing}
