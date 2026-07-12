@@ -32,6 +32,7 @@ export const PageDetail: React.FC = () => {
 
   return (
     <div className="p-6 max-w-7xl mx-auto">
+      {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
         <button onClick={() => navigate('/inapp-schedule')} className="hover:text-gray-700 flex items-center gap-1">
           <ArrowLeft size={14} />
@@ -43,6 +44,7 @@ export const PageDetail: React.FC = () => {
         <span className="text-gray-900 font-medium">{demoPage.page_name}</span>
       </div>
 
+      {/* Page Header */}
       <div className="bg-white rounded-xl border border-gray-100 p-6 mb-6 shadow-sm">
         <div className="flex items-start justify-between">
           <div className="flex items-start gap-4">
@@ -72,6 +74,7 @@ export const PageDetail: React.FC = () => {
           </div>
         </div>
 
+        {/* Stats Bar */}
         <div className="flex items-center gap-6 mt-6 pt-6 border-t border-gray-100">
           <div>
             <p className="text-xs text-gray-500">Pending</p>
@@ -88,6 +91,7 @@ export const PageDetail: React.FC = () => {
         </div>
       </div>
 
+      {/* Tabs */}
       <div className="flex gap-1 mb-6 bg-gray-100 p-1 rounded-lg w-fit">
         <button
           onClick={() => setActiveTab('overview')}
@@ -109,6 +113,7 @@ export const PageDetail: React.FC = () => {
         </button>
       </div>
 
+      {/* Tab Content */}
       {activeTab === 'overview' && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="card p-5">
@@ -140,6 +145,7 @@ export const PageDetail: React.FC = () => {
 
       {activeTab === 'queue' && (
         <div>
+          {/* Queue Actions */}
           <div className="flex gap-2 mb-4">
             <button 
               onClick={() => setShowBulkQueue(true)}
@@ -157,6 +163,7 @@ export const PageDetail: React.FC = () => {
             </button>
           </div>
 
+          {/* Queue List */}
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm">
             <div className="p-4 border-b border-gray-100">
               <h3 className="font-semibold text-gray-900">Pending Posts Queue</h3>
@@ -204,3 +211,74 @@ export const PageDetail: React.FC = () => {
                   >
                     {num}
                   </button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Timezone</label>
+              <select className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm">
+                <option>Asia/Karachi (UTC+5)</option>
+                <option>Asia/Dubai (UTC+4)</option>
+                <option>America/New_York (UTC-5)</option>
+                <option>Europe/London (UTC+0)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Bulk Queue Modal */}
+      {showBulkQueue && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setShowBulkQueue(false)} />
+          <div className="relative bg-white rounded-2xl shadow-xl w-full max-w-2xl mx-4 p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-gray-900">Bulk Queue Posts</h3>
+              <button onClick={() => setShowBulkQueue(false)} className="text-gray-400 hover:text-gray-600">
+                <X size={20} />
+              </button>
+            </div>
+            <p className="text-sm text-gray-500 mb-4">0 / 150 Posts</p>
+            <div className="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center mb-4">
+              <Upload size={32} className="text-gray-400 mx-auto mb-2" />
+              <p className="text-sm text-gray-500">Drag & drop files here or click to browse</p>
+              <button className="mt-2 text-sm text-emerald-600 font-medium">+ Start with Text Post</button>
+            </div>
+            <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-lg font-medium">
+              Queue 0 Posts
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Single Queue Modal */}
+      {showSingleQueue && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setShowSingleQueue(false)} />
+          <div className="relative bg-white rounded-2xl shadow-xl w-full max-w-lg mx-4 p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-gray-900">Queue Post</h3>
+              <button onClick={() => setShowSingleQueue(false)} className="text-gray-400 hover:text-gray-600">
+                <X size={20} />
+              </button>
+            </div>
+            <div className="space-y-4">
+              <div className="flex gap-2">
+                <button className="flex-1 py-2 bg-emerald-600 text-white rounded-lg text-sm font-medium">Text</button>
+                <button className="flex-1 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">Image</button>
+                <button className="flex-1 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">Video</button>
+              </div>
+              <textarea
+                placeholder="Write your post caption..."
+                className="w-full h-32 p-4 border border-gray-200 rounded-xl text-sm resize-none focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              />
+              <button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-lg font-medium">
+                Queue Post
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
